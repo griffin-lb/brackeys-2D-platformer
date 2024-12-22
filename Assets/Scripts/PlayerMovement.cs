@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
+         // Get the vertical velocity
+        float yVelocity = controller.GetVerticalVelocity(); // Assume this method is added in CharacterController2D
+
+        // Pass the vertical velocity to the animator for jumping/falling transition
+        animator.SetFloat("yVelocity", yVelocity);
+
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
